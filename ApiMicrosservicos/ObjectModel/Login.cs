@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Livraria.Api.ObjectModel
 {
-    public class ItemCarrinho
+    public class Login
     {
-        public Guid Id { get; set; }
-        public int Quantidade { get; set; }
+        public string Usuario { get; set; }
+        public string Senha { get; set; }
     }
 }

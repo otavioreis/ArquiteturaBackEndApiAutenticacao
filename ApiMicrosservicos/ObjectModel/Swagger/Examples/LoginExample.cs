@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace Livraria.Api.ObjectModel.Swagger.Examples
 {
-    public class LivroLivrariaExample : IExamplesProvider
+    public class LoginExample : IExamplesProvider
     {
         public object GetExamples()
         {
-            return new LivroLivraria
+            return new Login
             {
-                Autor = "Autor Teste",
-                Isbn = "isbn-teste",
-                Nome = "Nome Livro Teste",
-                Valor = 100m
+                Usuario = "otavio",
+                Senha = "12345"
             };
         }
     }

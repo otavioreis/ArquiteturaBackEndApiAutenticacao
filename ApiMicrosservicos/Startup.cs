@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Livraria.Api.Repository;
-using Livraria.Api.Repository.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -33,8 +31,8 @@ namespace Livraria.Api
                 c.SwaggerDoc("v1", new Info
                 {
                     Version = "v1",
-                    Title = "Livraria API",
-                    Description = "Um exemplo de endpoints de uma API de uma loja de livraria construída com ASP.NET Core Web API",
+                    Title = "API de Autenticação",
+                    Description = "Um exemplo de endpoints de uma API de autenticação construída com ASP.NET Core Web API",
                     Contact = new Contact
                     {
                         Name = "Otávio Augusto de Queiroz Reis",
@@ -44,7 +42,7 @@ namespace Livraria.Api
                     License = new License
                     {
                         Name = "Licença MIT",
-                        Url = "https://raw.githubusercontent.com/otavioreis/ArquiteturaBackEndAula02Exercicio2/master/LICENSE"
+                        Url = "https://raw.githubusercontent.com/otavioreis/ArquiteturaBackEndApiAutenticacao/master/LICENSE"
                     }
                 });
                 c.IncludeXmlComments(GetXmlCommentsPath());
@@ -53,9 +51,6 @@ namespace Livraria.Api
             });
 
             services.AddMvc();
-            services.AddSession();
-            services.AddSingleton<ILivrariaRepository, LivrariaRepository>();
-            services.AddSingleton<IPedidoRepository, PedidoRepository>();
         }
 
         protected static string GetXmlCommentsPath()
@@ -75,10 +70,9 @@ namespace Livraria.Api
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Livraria API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api de Autenticação V1");
             });
 
-            app.UseSession();
             app.UseMvc();
         }
 
