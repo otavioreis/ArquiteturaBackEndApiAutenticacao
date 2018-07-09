@@ -26,6 +26,12 @@ namespace Livraria.Api.Controllers.v1.pbl
             _config = config;
         }
 
+        /// <summary>
+        /// Dado o usuário e uma senha um token JWT é gerado
+        /// </summary>
+        /// <param name="login">Dados de usuário e senha passados no corpo da requisição</param>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="200">String informando o comentário recebido</response>
         [HttpPost]
         [SwaggerRequestExample(typeof(Login), typeof(LoginExample))]
         public IActionResult CriarToken([FromBody]Login login)
